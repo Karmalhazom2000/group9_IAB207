@@ -31,7 +31,7 @@
           </li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i> Profile Settings</a></li>
-          <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+          <li><a class="dropdown-item" href="{{ url_for('index') }}"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
         </ul>
       </div>
     </div>
@@ -47,19 +47,19 @@
         <div class="collapse navbar-collapse" id="navbarMain">
           <ul class="navbar-nav main-menu mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="home-page.html" id="homeNav">Home</a>
+              <a class="nav-link" href="{{ url_for('home_page') }}" id="homeNav">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="event-details.html" id="eventsNav">Seminar Details</a>
+              <a class="nav-link" href="{{ url_for('event_details') }}" id="eventsNav">Seminar Details</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking-history.html" id="bookingHistoryNav">Booking History</a>
+              <a class="nav-link" href="{{ url_for('booking_history') }}" id="bookingHistoryNav">Booking History</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about-us.html" id="aboutUsNav">Get to Know Us</a>
+              <a class="nav-link" href="{{ url_for('about_us') }}" id="aboutUsNav">Get to Know Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact-us.html" id="contactUsNav">Contact Us</a>
+              <a class="nav-link" href="{{ url_for('contact_us') }}" id="contactUsNav">Contact Us</a>
             </li>
           </ul>
         </div>
@@ -101,7 +101,7 @@
                        <option value="Finacial Mindset">Financial Mindset</option>
                        <option value="more..">more</option>
                     </select>
-                    <a href="event-details.html" class="btn btn-primary">Submit</a>
+                    <a href="{{ url_for('event_details') }}" class="btn btn-primary">Submit</a>
                  </form>
               </div>
            </div>
@@ -123,7 +123,7 @@
       <div class="col-md-8 offset-md-2 mb-5 mb-lg-0">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="section-title">Upcoming Seminars</h2>
-          <a href="create-event.html" class="btn btn-light">
+          <a href="{{ url_for('create_event') }}" class="btn btn-light">
             <i class="fas fa-plus me-2"></i> Organize a Seminar
           </a>
         </div>
