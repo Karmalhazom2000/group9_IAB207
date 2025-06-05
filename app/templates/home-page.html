@@ -25,16 +25,19 @@
         <ul class="dropdown-menu dropdown-menu-end">
           <li>
             <div class="dropdown-item-text">
-              <div class="fw-bold">Tshering Dorji</div>
-              <div class="small text-muted">tsheden@gmail.com</div>
+              <div class="fw-bold">Sonam Lhamo</div>
+              <div class="small text-muted">sonamlhamo871@gmail.com</div>
             </div>
           </li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item" href="#"><i class="fas fa-user-circle me-2"></i> Profile Settings</a></li>
-          <li><a class="dropdown-item" href="{{ url_for('index') }}"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+          <li><a class="dropdown-item" href="index.html"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
         </ul>
       </div>
     </div>
+
+ 
+
     
     <nav class="navbar navbar-expand-lg">
       <div class="container">
@@ -44,24 +47,26 @@
         <div class="collapse navbar-collapse" id="navbarMain">
           <ul class="navbar-nav main-menu mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('home_page') }}" id="homeNav">Home</a>
+              <a class="nav-link" href="home-page.html" id="homeNav">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('event_details') }}" id="eventsNav">Seminar Details</a>
+              <a class="nav-link" href="event-details.html" id="eventsNav">Seminar Details</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('booking_history') }}" id="bookingHistoryNav">Booking History</a>
+              <a class="nav-link" href="booking-history.html" id="bookingHistoryNav">Booking History</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('about_us') }}" id="aboutUsNav">Get to Know Us</a>
+              <a class="nav-link" href="about-us.html" id="aboutUsNav">Get to Know Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('contact_us') }}" id="contactUsNav">Contact Us</a>
+              <a class="nav-link" href="contact-us.html" id="contactUsNav">Contact Us</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
+
+
 
     <script>
       const navLinks = document.querySelectorAll('.nav-link');
@@ -81,7 +86,28 @@
       });
     </script>
   </header>
+        <div class="container">
+        <div class="row justify-content-center mt-5 pb-4">
+           <div class="col-md-8">
+              <div class="card shadow p-5 mb-5 bg-light">
+                 <h2 class="text-center mb-3">Select an Event Type:</h2>
+                 <form class="form-inline d-flex flex-nowrap">
 
+                    <select class="form-select" aria-label="Default select example">
+                       <option selected>Select an event type...</option>
+                       <option value="Talk by the Author" >Talk by the Author</option>
+                       <option value="Learn how to learn">Learn how to learn</option>
+                       <option value="Ted Talk">Ted Talk</option>
+                       <option value="Finacial Mindset">Financial Mindset</option>
+                       <option value="more..">more</option>
+                    </select>
+                    <a href="event-details.html" class="btn btn-primary">Submit</a>
+                 </form>
+              </div>
+           </div>
+        </div>
+     </div>
+    </div>
   <!-- Hero Section -->
   <section class="hero-section bg-primary text-black py-3" style="background-image: url('static/img/session.jpg');">
     <div class="container text-center">
@@ -97,7 +123,7 @@
       <div class="col-md-8 offset-md-2 mb-5 mb-lg-0">
         <div class="d-flex justify-content-between align-items-center mb-4">
           <h2 class="section-title">Upcoming Seminars</h2>
-          <a href="{{ url_for('create_event') }}" class="btn btn-light">
+          <a href="create-event.html" class="btn btn-light">
             <i class="fas fa-plus me-2"></i> Organize a Seminar
           </a>
         </div>
@@ -121,8 +147,11 @@
                   <i class="fas fa-map-marker-alt"></i>
                   <span>Central Theater</span>
                 </div>
+                <div class="event-meta">
+                  <span>Status: Open</span>
+                </div>
                 <div class="d-flex justify-content-between align-items-center mt-4">
-                  <a href="{{ url_for('event_details') }}" class="btn btn-light">View Details</a>
+                  <a href="event-details-talk-by-the-author.html" class="btn btn-light">View Details</a>
                   <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#bookTicketModal">
                     <i class="fas fa-ticket-alt me-2"></i> Reserve Seat
                   </button>
@@ -149,8 +178,11 @@
                   <i class="fas fa-map-marker-alt"></i>
                   <span>Convention Center</span>
                 </div>
+                 <div class="event-meta">
+                  <span>Status: Open</span>
+                </div>
                 <div class="d-flex justify-content-between align-items-center mt-4">
-                  <a href="{{ url_for('event_details') }}" class="btn btn-light">View Details</a>
+                  <a href="event-details-learn-how-to-learn.html" class="btn btn-light">View Details</a>
                   <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#bookTicketModal">
                     <i class="fas fa-ticket-alt me-2"></i> Reserve Seat
                   </button>
@@ -177,8 +209,11 @@
                   <i class="fas fa-map-marker-alt"></i>
                   <span>Downtown Pavilion</span>
                 </div>
+                 <div class="event-meta">
+                  <span>Status: Open</span>
+                </div>
                 <div class="d-flex justify-content-between align-items-center mt-4">
-                  <a href="{{ url_for('event_details') }}" class="btn btn-light">View Details</a>
+                  <a href="event-details-ted-talk.html" class="btn btn-light">View Details</a>
                   <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#bookTicketModal">
                     <i class="fas fa-ticket-alt me-2"></i> Reserve Seat
                   </button>
@@ -205,8 +240,11 @@
                   <i class="fas fa-map-marker-alt"></i>
                   <span>Arts Center</span>
                 </div>
+                 <div class="event-meta">
+                  <span>Status: BOOKED OUT</span>
+                </div>
                 <div class="d-flex justify-content-between align-items-center mt-4">
-                  <a href="{{ url_for('event_details') }}" class="btn btn-light">View Details</a>
+                  <a href="event-details-financial-mindset.html" class="btn btn-light">View Details</a>
                   <button class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#bookTicketModal">
                     <i class="fas fa-ticket-alt me-2"></i> Reserve Seat
                   </button>
@@ -217,7 +255,7 @@
         </div>
         
         <div class="text-center mt-5">
-          <a href="{{ url_for('event_details') }}" class="btn btn-light">View All Seminars</a>
+          <a href="event-details.html" class="btn btn-light">View All Seminars</a>
         </div>
       </div>
     </div>
