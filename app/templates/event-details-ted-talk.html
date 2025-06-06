@@ -68,27 +68,12 @@
       </div>
     </nav>
 
-    <script>
-      const navLinks = document.querySelectorAll('.nav-link');
 
-      navLinks.forEach(navLink => {
-        navLink.addEventListener('click', () => {
-          navLinks.forEach(link => link.classList.remove('active'));
-          navLink.classList.add('active');
-        });
-      });
-
-      const currentPath = window.location.pathname;
-      navLinks.forEach(navLink => {
-        if (navLink.getAttribute('href') === currentPath) {
-          navLink.classList.add('active');
-        }
-      });
-    </script>
   </header>
 
   <!-- Event Detail Banner -->
-  <div class="event-detail-banner" style="background-image: url('static/img/conferences.jpg');">
+    <div class="event-detail-banner card-img-top event-image"
+    style= "background-image: url('{{ url_for('static', filename='img/conferences.jpg') }}'); background-size: cover; background-position: center;">
     <div class="event-detail-overlay">
       <div class="container">
         <h1 class="event-detail-title">Ted Talk</h1>
