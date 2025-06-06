@@ -92,7 +92,7 @@
      </div>
     </div>
   <!-- Hero Section -->
-  <section class="hero-section bg-primary text-black py-3" style="background-image: url('static/img/session.jpg');">
+  <section class="hero-section bg-primary text-black py-3" style="background-image: url('{{ url_for('static, filename= 'img/session.jpg') }}');">
     <div class="container text-center">
       <h1 class="hero-title">Share your experience</h1>
       <p class="hero-subtitle">Find and book tickets for the most exciting events happening around you</p>
@@ -256,7 +256,7 @@
         </div>
         <div class="modal-body">
           <div class="d-flex mb-4">
-            <img src="{{ url_for('static', filename='img/socratic-seminars.jpeg') }} alt="Event" class="img-thumbnail me-3" style="width: 100px; height: 100px; object-fit: cover;">
+            <img src="{{ url_for('static', filename='img/socratic-seminars.jpeg') }}" alt="Event" class="img-thumbnail me-3" style="width: 100px; height: 100px; object-fit: cover;">
             <div>
               <h5>Talk by the Author</h5>
               <p class="small text-muted mb-0">June 15, 2025 at 18:00</p>
