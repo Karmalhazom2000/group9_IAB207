@@ -68,23 +68,7 @@
       </div>
     </nav>
 
-    <script>
-      const navLinks = document.querySelectorAll('.nav-link');
 
-      navLinks.forEach(navLink => {
-        navLink.addEventListener('click', () => {
-          navLinks.forEach(link => link.classList.remove('active'));
-          navLink.classList.add('active');
-        });
-      });
-
-      const currentPath = window.location.pathname;
-      navLinks.forEach(navLink => {
-        if (navLink.getAttribute('href') === currentPath) {
-          navLink.classList.add('active');
-        }
-      });
-    </script>
   </header>
 
   <div class="event-detail-banner card-img-top event-image"
