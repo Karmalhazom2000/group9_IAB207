@@ -2,7 +2,7 @@
 from flask import Flask, render_template, redirect, url_for, flash, request
 from app.forms.forms import RegistrationForm
 from app import db, bcrypt
-from app.models import User
+from app.models.user import User
 
 app = Flask(__name__)
 app.secret_key = 'somerandomvalue'
