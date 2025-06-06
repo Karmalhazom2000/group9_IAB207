@@ -1,4 +1,4 @@
-"""Routes for the application."""
+e"""Routes for the application."""
 from flask import Flask, render_template, redirect, url_for, flash, request
 from app.forms.forms import RegistrationForm
 from app import db, bcrypt
@@ -61,7 +61,7 @@ def register_routes(app):
 
     @app.route('/seminar/learn-how-to-learn')
     def seminar_learn_how_to_learn():
-        return render_template('learn-how-to-learn.html')
+        return render_template('event-details-learn-how-to-learn.html')
 
     @app.route('/seminar/talk-by-the-author')
     def seminar_talk_by_author():
