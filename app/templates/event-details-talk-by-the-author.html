@@ -88,7 +88,8 @@
   </header>
 
   <!-- Event Detail Banner -->
-  <div class="event-detail-banner" style="background-image: url('static/img/talk-show.jpg');">
+  <div class="event-detail-banner card-img-top event-image"
+    style= "background-image: url('{{ url_for('static', filename='img/seminar.jpg') }}'); background-size: cover; background-position: center;">
     <div class="event-detail-overlay">
       <div class="container">
         <h1 class="event-detail-title">Talk by the Author</h1>
