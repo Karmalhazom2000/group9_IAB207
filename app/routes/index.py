@@ -55,6 +55,10 @@ def register_routes(app):
     @app.route('/event-details') 
     def event_details(): 
         return render_template('event-details.html')
+
+    @app.route('/event-detail-financial-mindset') 
+    def event_details(): 
+        return render_template('event-details-financial-mindset.html')
     
     @app.route('/booking-history') 
     def booking_history(): 
