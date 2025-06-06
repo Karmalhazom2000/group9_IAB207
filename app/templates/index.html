@@ -77,6 +77,7 @@
     </div>
   </section>
 
+ 
   <!-- Main Content -->
   <div class="container-fluid py-5">
     <div class="row">
@@ -93,7 +94,7 @@
           <!-- Event 1 -->
           <div class="col-md-6">
             <div class="card event-card">
-              <img src="static/img/seminar.jpg" class="card-img-top event-image" alt="Talk by the Author">
+              <img src="{{ url_for('static', filename='img/seminar.jpg')}}" class="card-img-top event-image" alt="Talk by the Author">
               <div class="card-body">
                 <h3 class="card-title">Talk by the Author</h3>
                 <div class="event-meta">
@@ -124,7 +125,7 @@
           <!-- Event 2 -->
           <div class="col-md-6">
             <div class="card event-card">
-              <img src="static/img/business-seminars-and-conferences.png" class="card-img-top event-image" alt="Learn how to learn">
+              <img src="{{ url_for('static', filename='img/business-seminars-and-conferences.png')}}" class="card-img-top event-image" alt="Learn how to learn">
               <div class="card-body">
                 <h3 class="card-title">Learn how to learn</h3>
                 <div class="event-meta">
@@ -155,7 +156,7 @@
           <!-- Event 3 -->
           <div class="col-md-6">
             <div class="card event-card">
-              <img src="static/img/conferences.jpg" class="card-img-top event-image" alt="Food & Wine Expo">
+              <img src="{{ url_for('static', filename='img/conferences.jpg')}}" class="card-img-top event-image" alt="Food & Wine Expo">
               <div class="card-body">
                 <h3 class="card-title">Ted Talk</h3>
                 <div class="event-meta">
@@ -186,7 +187,7 @@
           <!-- Event 4 -->
           <div class="col-md-6">
             <div class="card event-card">
-              <img src="static/img/banner.jpg" class="card-img-top event-image" alt="Photography Workshop">
+              <img src="{{ url_for('static', filename='img/banner.jpg')}}" class="card-img-top event-image" alt="Photography Workshop">
               <div class="card-body">
                 <h3 class="card-title">Financial Mindset</h3>
                 <div class="event-meta">
@@ -216,7 +217,7 @@
         </div>
         
         <div class="text-center mt-5">
-          <a href="event-details.html" class="btn btn-light">View All Seminars</a>
+          <a href="{{url_for('event-details')}}" class="btn btn-light">View All Seminars</a>
         </div>
       </div>
     </div>
@@ -232,7 +233,7 @@
         </div>
         <div class="modal-body">
           <div class="d-flex mb-4">
-            <img src="static/img/socratic-seminars.jpeg" alt="Event" class="img-thumbnail me-3" style="width: 100px; height: 100px; object-fit: cover;">
+            <img src="{{ url_for('static', filename='img/socratic-seminars.jpeg') }} alt="Event" class="img-thumbnail me-3" style="width: 100px; height: 100px; object-fit: cover;">
             <div>
               <h5>Talk by the Author</h5>
               <p class="small text-muted mb-0">June 15, 2025 at 18:00</p>
