@@ -1,6 +1,8 @@
 """Routes for the application."""
 from flask import Flask, render_template, redirect, url_for, flash, request
 from app.forms.forms import RegistrationForm
+from app import db, bcrypt
+from app.models import User
 
 app = Flask(__name__)
 app.secret_key = 'somerandomvalue'
@@ -57,6 +59,18 @@ def register_routes(app):
     def seminar_financial_mindset():
         return render_template('event-details-financial-mindset.html')
 
+    @app.route('/seminar/learn-how-to-learn')
+    def seminar_learn_how_to_learn():
+        return render_template('learn-how-to-learn.html')
+
+    @app.route('/seminar/talk-by-the-author')
+    def seminar_talk_by_author():
+        return render_template('event-details-talk-by-the-author.html')
+
+    @app.route('/seminar/ted-talk')
+    def seminar_ted_talk():
+        return render_template('event-details-ted-talk.html')  
+
     @app.route('/book-ticket', methods=['POST'])
     def book_ticket():
         name = request.form.get('name')
@@ -75,7 +89,6 @@ def register_routes(app):
     @app.route('/booking-history') 
     def booking_history(): 
         return render_template('booking-history.html')
-
 
 # Register routes
 register_routes(app)
