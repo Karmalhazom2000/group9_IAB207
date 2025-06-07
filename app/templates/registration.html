@@ -32,7 +32,6 @@
     <div class="registration-form">
       <h1>User Registration</h1>
 
-      <!-- Flask Form Start -->
       <form method="POST" action="{{ url_for('auth.register') }}">
         {{ form.hidden_tag() }}
 
@@ -51,7 +50,7 @@
           {{ form.lastname(class="form-control") }}
         </div>
 
-        <div class="mb-3" style="display:none;">
+        <div class="mb-3" style="display: none;">
           {{ form.username.label(class="form-label") }}
           {{ form.username(class="form-control", value=generated_username) }}
         </div>
@@ -79,13 +78,14 @@
         {% if message %}
         <div class="alert alert-success">{{ message }}</div>
         {% endif %}
+
         {% if form.errors %}
         <div class="alert alert-danger">
           <ul>
             {% for field, errors in form.errors.items() %}
-            {% for error in errors %}
-            <li>{{ error }}</li>
-            {% endfor %}
+              {% for error in errors %}
+              <li>{{ error }}</li>
+              {% endfor %}
             {% endfor %}
           </ul>
         </div>
