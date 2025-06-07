@@ -1,50 +1,57 @@
+# app/routes/auth.py
+
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from app import db, bcrypt, mail
+from flask_login import login_user, logout_user, login_required
+from app import db, bcrypt
 from app.models.user import User
-from flask_mail import Message
-from flask_login import login_user
-import random, string
+from app.forms import RegistrationForm, LoginForm
 
-auth_bp = Blueprint('auth', __name__)
+auth = Blueprint('auth', __name__)
 
-@auth_bp.route('/register', methods=['GET', 'POST'])
+@auth.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
 
-        # Generate random password
-        raw_password = ''.join(random.choices(string.ascii_letters + string.digits, k=10))
-        hashed_password = bcrypt.generate_password_hash(raw_password).decode('utf-8')
+        user = User(
+            firstname=form.firstname.data,
+            middlename=form.middlename.data,
+            lastname=form.lastname.data,
+            username=form.username.data,
+            email=form.email.data,
+            password=hashed_password,
+            contact_number=form.contact_number.data,
+            address=form.address.data
+        )
 
-        user = User(username=username, email=email, password=hashed_password)
         db.session.add(user)
         db.session.commit()
-
-        # Send email with username & password
-        msg = Message('Your Account Credentials',
-                      sender='noreply@example.com',
-                      recipients=[email])
-        msg.body = f"Hello {username},\n\nYour login password is: {raw_password}"
-        mail.send(msg)
-
-        flash('User registered and credentials sent to email.', 'success')
+        flash('Account created successfully! You can now log in.', 'success')
         return redirect(url_for('auth.login'))
 
-    return render_template('register.html')
+    return render_template('registration.html', form=form)
 
-@auth_bp.route('/login', methods=['GET', 'POST'])
+
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
 
-        user = User.query.filter_by(email=email).first()
-        if user and bcrypt.check_password_hash(user.password, password):
+        if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
-            flash('Logged in successfully!', 'success')
-            return redirect(url_for('auth.dashboard'))  # Create this route later
+            flash('Login successful!', 'success')
+            return redirect(url_for('index'))  # or your dashboard route
         else:
-            flash('Login failed. Check your email or password.', 'danger')
+            flash('Invalid email or password.', 'danger')
 
-    return render_template('login.html')
+    return render_template('login.html', form=form)
+
+
+@auth.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have been logged out.', 'info')
+    return redirect(url_for('auth.login'))
