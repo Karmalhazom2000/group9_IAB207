@@ -1,6 +1,6 @@
 """Routes for the application."""
 from flask import Flask, render_template, redirect, url_for, flash, request
-from app.forms.forms import RegistrationForm
+from app.forms import RegistrationForm
 from app import db, bcrypt
 from app.models.user import User
 
