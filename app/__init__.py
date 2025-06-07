@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
@@ -14,7 +14,7 @@ def create_app():
     app.config['SECRET_KEY'] = 'your-secret-key'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///seminar-ems.db'
 
-    # Mail config (use dummy for now)
+    # Mail config
     app.config['MAIL_SERVER'] = 'smtp.example.com'
     app.config['MAIL_PORT'] = 587
     app.config['MAIL_USE_TLS'] = True
@@ -28,12 +28,14 @@ def create_app():
 
     from app.routes.auth import auth_bp
     app.register_blueprint(auth_bp)
-@app.errorhandler(404)
-def not_found_error(error):
-    return render_template('404.html'), 404
 
-@app.errorhandler(500)
-def internal_error(error):
-    return render_template('500.html'), 500
+    # Error handlers must be registered inside the app function, before return
+    @app.errorhandler(404)
+    def not_found_error(error):
+        return render_template('404.html'), 404
+
+    @app.errorhandler(500)
+    def internal_error(error):
+        return render_template('500.html'), 500
 
     return app
