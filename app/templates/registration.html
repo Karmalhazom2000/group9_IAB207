@@ -50,10 +50,13 @@
           {{ form.lastname(class="form-control") }}
         </div>
 
+        <!-- Optional: username field (hidden) -->
+        {% if form.username %}
         <div class="mb-3" style="display: none;">
           {{ form.username.label(class="form-label") }}
           {{ form.username(class="form-control") }}
         </div>
+        {% endif %}
 
         <div class="mb-3">
           {{ form.email.label(class="form-label") }}
@@ -75,9 +78,15 @@
           {{ form.address(class="form-control") }}
         </div>
 
-        {% if message %}
-        <div class="alert alert-success">{{ message }}</div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        <div class="alert alert-info">
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
         {% endif %}
+        {% endwith %}
 
         {% if form.errors %}
         <div class="alert alert-danger">
