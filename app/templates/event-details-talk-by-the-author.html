@@ -40,51 +40,35 @@
       </div>
     </div>
 
+    
     <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-          aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarMain">
           <ul class="navbar-nav main-menu mx-auto">
             <li class="nav-item">
-              <a class="nav-link" href="home-page.html" id="homeNav">Home</a>
+              <a class="nav-link" href="{{ url_for('home_page') }}" id="homeNav">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="event-details.html" id="eventsNav">Seminar Details</a>
+              <a class="nav-link" href="{{ url_for('event_details') }}" id="eventsNav">Seminar Details</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="booking-history.html" id="bookingHistoryNav">Booking History</a>
+              <a class="nav-link" href="{{ url_for('booking_history') }}" id="bookingHistoryNav">Booking History</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about-us.html" id="aboutUsNav">Get to Know Us</a>
+              <a class="nav-link" href="{{ url_for('about_us') }}" id="aboutUsNav">Get to Know Us</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="contact-us.html" id="contactUsNav">Contact Us</a>
+              <a class="nav-link" href="{{ url_for('contact_us') }}" id="contactUsNav">Contact Us</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <script>
-      const navLinks = document.querySelectorAll('.nav-link');
 
-      navLinks.forEach(navLink => {
-        navLink.addEventListener('click', () => {
-          navLinks.forEach(link => link.classList.remove('active'));
-          navLink.classList.add('active');
-        });
-      });
-
-      const currentPath = window.location.pathname;
-      navLinks.forEach(navLink => {
-        if (navLink.getAttribute('href') === currentPath) {
-          navLink.classList.add('active');
-        }
-      });
-    </script>
   </header>
 
   <!-- Event Detail Banner -->
