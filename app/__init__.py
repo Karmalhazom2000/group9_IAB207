@@ -35,8 +35,8 @@ def create_app():
     login_manager.login_message_category = 'info'
 
     # Register blueprints
-    from app.routes.auth import auth_bp
-    app.register_blueprint(auth_bp, url_prefix='/auth')
+    from app.routes.auth import auth
+    app.register_blueprint(auth, url_prefix='/auth')
 
     # Error handlers
     @app.errorhandler(404)

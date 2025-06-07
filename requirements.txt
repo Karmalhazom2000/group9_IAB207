@@ -23,5 +23,3 @@ types-requests==2.32.0.20250602
 types-Werkzeug==1.0.9
 typing_extensions==4.14.0
 urllib3==2.4.0
-Werk
-wnv-vkpt-kzz
