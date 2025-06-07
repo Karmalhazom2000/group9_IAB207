@@ -14,7 +14,7 @@ def create_app():
     app.config['SECRET_KEY'] = 'your-secret-key'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///seminar-ems.db'
 
-    # Mail config
+    
     app.config['MAIL_SERVER'] = 'smtp.example.com'
     app.config['MAIL_PORT'] = 587
     app.config['MAIL_USE_TLS'] = True
@@ -29,7 +29,7 @@ def create_app():
     from app.routes.auth import auth_bp
     app.register_blueprint(auth_bp)
 
-    # Error handlers must be registered inside the app function, before return
+    
     @app.errorhandler(404)
     def not_found_error(error):
         return render_template('404.html'), 404
